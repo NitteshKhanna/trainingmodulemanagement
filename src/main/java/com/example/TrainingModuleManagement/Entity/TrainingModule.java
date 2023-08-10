@@ -1,6 +1,7 @@
 package com.example.TrainingModuleManagement.Entity;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,7 +28,9 @@ public class TrainingModule {
    private String t3;
    private String t4;
 
+
     @ManyToMany(mappedBy = "trainingModules")
+    @JsonManagedReference
     private Set<Employee> employees = new HashSet<>();
     public int getTr_id() {
         return tr_id;

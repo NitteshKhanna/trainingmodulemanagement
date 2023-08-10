@@ -4,8 +4,11 @@ import com.example.TrainingModuleManagement.Entity.Employee;
 import com.example.TrainingModuleManagement.Entity.TrainingModule;
 import com.example.TrainingModuleManagement.TrainigRepo.EmpRepo;
 import com.example.TrainingModuleManagement.TrainigRepo.TrainRepo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class TrainServ implements TrainServInt {
@@ -33,6 +36,11 @@ public class TrainServ implements TrainServInt {
             emp.getTrainingModules().add(trmo);
             e.save(emp);
         }
+    }
+
+    @Override
+    public List<TrainingModule> viewModule() {
+        return t.findAll();
     }
 
 

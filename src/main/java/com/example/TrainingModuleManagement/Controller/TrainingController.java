@@ -3,9 +3,11 @@ package com.example.TrainingModuleManagement.Controller;
 import com.example.TrainingModuleManagement.Entity.Employee;
 import com.example.TrainingModuleManagement.Entity.TrainingModule;
 import com.example.TrainingModuleManagement.Service.TrainServ;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -24,5 +26,10 @@ public class TrainingController {
     @PostMapping("/assignmodule")
     public void assignModule(@RequestParam Long mId,@RequestParam Long empId){
         trs.assingModule(mId,empId);
+    }
+    @GetMapping("/viewmodules")
+    public ResponseEntity<List<TrainingModule>> viewModules() {
+        List<TrainingModule> mod=trs.viewModule();
+        return ResponseEntity.ok(mod);
     }
 }

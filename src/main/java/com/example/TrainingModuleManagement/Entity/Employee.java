@@ -1,5 +1,6 @@
 package com.example.TrainingModuleManagement.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.util.*;
@@ -16,6 +17,7 @@ public class Employee {
 
     @ManyToMany
     @JoinTable(name = "employee_training",joinColumns = @JoinColumn(name = "employee_id"),inverseJoinColumns = @JoinColumn(name = "training_id"))
+    @JsonBackReference
     private Set<TrainingModule> trainingModules=new HashSet<>();
 
     public int getEmp_id() {
