@@ -36,4 +36,15 @@ public class TrainingController {
     public TrainingModule viewById(@PathVariable Long id){
         return trs.getById(id);
     }
+    @PutMapping("/updateEmp/{emp_id}")
+    public void updateE(@PathVariable Long emp_id,@RequestBody Employee em){trs.updateEmployee(emp_id,em);}
+
+    @PutMapping("/updateTr/{tr_id}")
+    public  void updateTrModule(@PathVariable Long tr_id, @RequestBody TrainingModule trMod){trs.updateTrModule(tr_id,trMod);}
+
+    @DeleteMapping("/deleteEmp/{emp_id}")
+    public void deleteE(@PathVariable Long emp_id,@RequestBody Employee em){trs.deleteEmployee(emp_id,em);}
+
+    @DeleteMapping("/deleteTr/{tr_id}")
+    public void deleteTrModule(@PathVariable Long tr_id,@RequestBody TrainingModule trMod){trs.deleteTrModule(tr_id, trMod);}
 }
