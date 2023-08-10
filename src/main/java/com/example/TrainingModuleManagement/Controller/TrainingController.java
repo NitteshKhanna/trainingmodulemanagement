@@ -32,4 +32,8 @@ public class TrainingController {
         List<TrainingModule> mod=trs.viewModule();
         return ResponseEntity.ok(mod);
     }
+    @GetMapping("/viewmodules/{id}")
+    public TrainingModule viewById(@PathVariable Long id){
+        return trs.getById(id);
+    }
 }

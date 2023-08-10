@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TrainServ implements TrainServInt {
@@ -41,6 +42,12 @@ public class TrainServ implements TrainServInt {
     @Override
     public List<TrainingModule> viewModule() {
         return t.findAll();
+    }
+
+    @Override
+    public TrainingModule getById(Long id) {
+        Optional<TrainingModule> trmod=t.findById(id);
+        return trmod.get();
     }
 
 

@@ -10,4 +10,5 @@ public interface TrainServInt {
     public Employee saveEmp(Employee emp);
     public void assingModule(Long mId,Long empId);
     public List<TrainingModule> viewModule();
+    public TrainingModule getById(Long id);
 }
